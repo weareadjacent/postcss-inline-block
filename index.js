@@ -6,14 +6,22 @@ module.exports = postcss.plugin('postcss-inline-block', function () {
     function inlineBlockFix(decl){
     	var origRule = decl.parent;
     	origRule.append(
-	    	{
-	    		prop:'*display',
-	    		value:'inline'
-	    	},
-	    	{
-	    		prop:'*zoom',
-	    		value:'1'
-	    	}
+            {
+                prop: 'vertical-align',
+                value: 'middle'
+            },
+            {
+                prop: '*vertical-align',
+                value: 'auto'
+            },
+            {
+                prop: '*zoom',
+                value: '1'
+            },
+            {
+                prop: '*display',
+                value: 'inline'
+            }
     	);
     }
 
